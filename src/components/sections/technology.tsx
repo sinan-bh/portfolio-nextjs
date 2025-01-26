@@ -19,7 +19,7 @@ const containerVariants = {
 
 export default function Technology() {
   return (
-    <div>
+    <div className="min-h-screen">
       <div>
         <div className="px-4 text-2xl md:text-5xl font-bold leading-tight text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
           Technology Stack
