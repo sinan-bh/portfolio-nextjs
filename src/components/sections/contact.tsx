@@ -28,9 +28,9 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const serviceID = "service_3g2rg0p";
-    const templateID = "template_lb7mhiw";
-    const userID = "kjhNo578GYaKUeLaI";
+    const serviceID = process.env.NEXT_PUBLIC_SERVICE_ID as string;
+    const templateID = process.env.NEXT_PUBLIC_TEMPLATE_ID as string;
+    const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID as string;
 
     if (!formRef.current) return;
 
@@ -60,7 +60,7 @@ const Contact = () => {
     <div id="contact" className="max-w-full">
       <div className="min-h-screen flex items-center justify-center py-12">
         <motion.div
-          className=" rounded-lg shadow-lg max-w-3xl w-full text-white"
+          className="rounded-lg shadow-lg max-w-3xl w-full text-white"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -136,11 +136,34 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`mt-6 max-w-full px-3 py-3 rounded-lg bg-gradient-to-r from-purple-900 to-gray-900 ${
+              className={`mt-6 max-w-full flex justify-center items-center px-3 py-3 rounded-lg bg-gradient-to-r from-purple-900 to-gray-900 ${
                 isSubmitting ? "opacity-50" : "hover:bg-purple-700"
               }`}
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? (
+                <svg
+                  className="animate-spin h-5 w-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C6.48 0 0 6.48 0 12h4z"
+                  ></path>
+                </svg>
+              ) : (
+                "Send Message"
+              )}
             </button>
           </form>
         </motion.div>
