@@ -11,7 +11,7 @@ export default function About() {
       opacity: 1,
       scale: 1,
       x: 0,
-      transition: { type: "spring", stiffness: 300, damping: 25, delay: 0.2 },
+      transition: { type: "spring", stiffness: 300, damping: 25 },
     },
   };
 
@@ -20,7 +20,7 @@ export default function About() {
     animate: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 25, delay: 0.3 },
+      transition: { type: "spring", stiffness: 300, damping: 25 },
     },
   };
 
@@ -29,7 +29,7 @@ export default function About() {
     animate: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 25, delay: 0.5 },
+      transition: { type: "spring", stiffness: 300, damping: 25 },
     },
   };
 
@@ -44,7 +44,8 @@ export default function About() {
           className="relative"
           variants={imageVariants}
           initial="initial"
-          animate="animate"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.5 }} // Animation triggers when 50% of the section is visible
         >
           <Image
             src="/me/profile.jpg" // Replace with your image path
@@ -61,7 +62,8 @@ export default function About() {
             className="text-4xl md:text-6xl font-bold leading-tight"
             variants={textVariants}
             initial="initial"
-            animate="animate"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.5 }}
           >
             I’m Sinan
           </motion.h1>
@@ -69,7 +71,8 @@ export default function About() {
             className="text-lg md:text-xl font-light mt-4"
             variants={textVariants}
             initial="initial"
-            animate="animate"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.5 }}
           >
             a Passionate Web Developer
           </motion.p>
@@ -77,7 +80,8 @@ export default function About() {
             className="text-sm md:text-base text-gray-400 mt-4 leading-relaxed"
             variants={textVariants}
             initial="initial"
-            animate="animate"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.5 }}
           >
             I am a web developer specializing in React.js, Next.js, TypeScript,
             Tailwind CSS, Node.js, Express, and MongoDB. I craft clean,
@@ -90,14 +94,16 @@ export default function About() {
               className="text-white py-2 rounded-lg text-lg font-medium"
               variants={textVariants}
               initial="initial"
-              animate="animate"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.5 }}
             >
               Get in touch
             </motion.div>
             <motion.div
               variants={socialMediaVariants}
               initial="initial"
-              animate="animate"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.5 }}
             >
               <SocialMedia className="flex gap-4 py-4" />
             </motion.div>

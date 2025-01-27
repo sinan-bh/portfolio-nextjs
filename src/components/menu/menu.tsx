@@ -19,8 +19,9 @@ export default function Menu() {
     <div>
       <div className="flex justify-center gap-4 pt-3">
         {navbarArr.map((item, index) => (
-          <motion.div
+          <motion.a
             key={index}
+            href={item.link}
             className="border-2 border-white shadow-md p-3 rounded-md text-center cursor-pointer"
             whileHover={{
               scale: 1.1,
@@ -30,10 +31,8 @@ export default function Menu() {
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 200, damping: 10 }}
           >
-            <a href={item.link} className="text-white">
-              {item.label}
-            </a>
-          </motion.div>
+            <div className="text-white">{item.label}</div>
+          </motion.a>
         ))}
       </div>
     </div>

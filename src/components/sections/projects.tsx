@@ -2,17 +2,27 @@
 
 import { projects } from "@/lib/projects";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Link from "next/link";
 
 export default function Projects() {
+  // Initialize AOS on component mount
+  useEffect(() => {
+    AOS.init({
+      duration: 1200, // Animation duration in milliseconds
+      once: true, // Whether animation should happen only once
+    });
+  }, []);
+
   return (
     <div id="projects" className="p-6 mt-4">
       <div className="text-2xl md:text-5xl font-bold leading-tight text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
         Projects
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 px-4 py-8 mt-8 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 px-4 py-8 mt-8">
         {projects.map((project, index) => (
           <motion.div
             key={index}
@@ -22,9 +32,11 @@ export default function Projects() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
             whileHover={{
-              scale: 1.1,
-              boxShadow: "0 10px 20px rgba(255, 255, 255, 0.3)",
+              scale: 1.05,
+              boxShadow: "0 15px 30px rgba(255, 255, 255, 0.3)",
             }}
+            data-aos={index % 2 === 0 ? "fade-up" : "fade-right"} // Alternating AOS animations
+            data-aos-delay={index * 100} // AOS delay for staggered animations
           >
             <div className="relative h-48 w-full">
               {project.image ? (
