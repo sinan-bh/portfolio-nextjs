@@ -14,8 +14,59 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sinan B H",
+  title: "SINAN",
   description: "Sinan's Portfolio",
+  viewport: "width=device-width, initial-scale=1.0",
+  keywords: [
+    "Sinan",
+    "Portfolio",
+    "Sinan Bh",
+    "Sinan B H,",
+    "sinanbh",
+    "sinan-bh",
+    "sinan bh",
+    "full stack developer",
+    "front-end developer",
+    "back-end developer",
+    "sinan bh portfolio",
+    "sinan bh portfolio",
+    "sinan bh portfolio",
+    "sinan bh portfolio",
+  ],
+  openGraph: {
+    title: "Sinan's Portfolio",
+    description: "Sinan's Portfolio",
+    images: [
+      {
+        url: "https://sinanbh.vercel.app/",
+        width: 1200,
+        height: 630,
+        alt: "Sinan's Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sinan's Portfolio",
+    description: "Sinan's Portfolio",
+    images: ["https://sinanbh.vercel.app/"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    shortcut: "/favicon.ico",
+  }
 };
 
 export default function RootLayout({
