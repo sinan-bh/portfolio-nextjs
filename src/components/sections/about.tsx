@@ -57,7 +57,7 @@ export default function About() {
         </motion.div>
 
         {/* Right Section - Content */}
-        <div className="flex flex-col justify-center max-w-sm sm:max-w-full">
+        <div className="flex flex-col justify-center max-w-sm sm:max-w-full px-5 sm:px-0">
           <motion.h1
             className="text-4xl md:text-6xl font-bold leading-tight"
             variants={textVariants}

@@ -58,7 +58,7 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="max-w-full">
+    <div id="contact" className="max-w-full px-5 sm:px-0">
       <div className="min-h-screen flex items-center justify-center py-12">
         <motion.div
           className="rounded-lg shadow-lg max-w-3xl w-full text-white"

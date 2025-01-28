@@ -25,6 +25,8 @@ export const metadata: Metadata = {
     "sinanbh",
     "sinan-bh",
     "sinan bh",
+    "sinan bh portfolio",
+    "sinan portfolio",
     "full stack developer",
     "front-end developer",
     "back-end developer",
