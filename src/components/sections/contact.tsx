@@ -32,6 +32,8 @@ const Contact = () => {
     const templateID = process.env.NEXT_PUBLIC_TEMPLATE_ID as string;
     const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID as string;
 
+    console.log(serviceID, templateID, userID);
+
     if (!formRef.current) return;
 
     try {
