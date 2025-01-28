@@ -5,9 +5,23 @@ import React, { useEffect, useState } from "react";
 export default function Cursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
-  // Update cursor position on mouse move
   useEffect(() => {
+    // Check if the device supports touch
+    const checkTouchDevice = () => {
+      setIsTouchDevice(window.matchMedia("(pointer: coarse)").matches);
+    };
+
+    checkTouchDevice(); // Initial check
+    window.addEventListener("resize", checkTouchDevice); // Recheck on window resize
+
+    return () => window.removeEventListener("resize", checkTouchDevice);
+  }, []);
+
+  useEffect(() => {
+    if (isTouchDevice) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
@@ -17,20 +31,18 @@ export default function Cursor() {
 
     // Remove event listener on cleanup
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  }, [isTouchDevice]);
 
-  // Handle hover state for outside lighting effect
-  const handleMouseEnter = () => {
-    setHovered(true);
-  };
+  if (isTouchDevice) {
+    return null; // Do not render the cursor for touch devices
+  }
 
-  const handleMouseLeave = () => {
-    setHovered(false);
-  };
+  const handleMouseEnter = () => setHovered(true);
+  const handleMouseLeave = () => setHovered(false);
 
   return (
     <div
-      className="fixed top-0 left-0 z-50 pointer-events-none"
+      className="hidden sm:block fixed top-0 left-0 z-50 pointer-events-none"
       style={{
         transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
       }}
