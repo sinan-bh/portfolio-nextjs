@@ -46,7 +46,7 @@ export const projects: ProjectsArr[] = [
     image: "/projects/plrglobalfx.png",
     link: {
       github: "https://github.com/sinan-bh/PLR-GLOBAL_FX",
-      live: "https://plr-global-fx.vercel.app/",
+      live: "https://plrglobalfx.vercel.app/",
     },
   },
 ];
